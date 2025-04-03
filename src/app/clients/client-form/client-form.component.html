@@ -1,0 +1,40 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-form-field class="fil-col">
+                <mat-label>Nome</mat-label>
+                <input matInput name="name" id="name" #nameModel="ngModel" [(ngModel)]="client.name" required>
+                @if (nameModel.hasError('required')) {
+                    <mat-error>Informe o nome do cliente</mat-error>
+                }
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <mat-form-field class="fil-col">
+                <mat-label>email</mat-label>
+                <input matInput name="email" id="email" #emailModel="ngModel" [(ngModel)]="client.email" required email>
+                @if (emailModel.hasError('required') || emailModel.hasError('email') ) {
+                    <mat-error>Informe o email do cliente</mat-error>
+                }
+            </mat-form-field>
+        </div>
+        <div class="col-6">
+            <mat-form-field class="fil-col">
+                <mat-label>Telefone</mat-label>
+                <input matInput name="phone" id="phone" #phoneModel="ngModel" [(ngModel)]="client.phone" required mask="(00) 00000-0000">
+                @if (phoneModel.hasError('required')) {
+                    <mat-error>Informe o telefone do cliente</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <div class="col div-button">
+                <button mat-flat-button type="submit" [disabled]="!form.valid" >Salvar</button>
+            </div>
+        </div>
+
+    </div>
+</form>
