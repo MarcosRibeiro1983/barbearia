@@ -6,21 +6,22 @@
                     <div class="col-4">
                         <mat-form-field>
                             <mat-label>Inicio</mat-label>
-                            <input matInput type="time"
-                                name="startAt" id="startAt" #startAtModel="ngModel" [(ngModel)]="newSchedules.startAt"
-                                required 
-                                (ngModelChanges)="onTimeChange($event)" >
+                            <input matInput [matTimepicker]="startAtPicker" [ngModelOptions]="{updateOn: 'blur'}"
+                                name="startAt" id="startAt" #startAtModel="ngModel"
+                                (ngModelChange)="onTimeChange($event)" [(ngModel)]="newSchedules.startAt" requied>
+                            <mat-timepicker #startAtPicker />
+                            <mat-timepicker-toggle [for]="startAtPicker" matSuffix />
                         </mat-form-field>
                     </div>
                     <div class="col-4">
                         <mat-form-field>
                             <mat-label>Término</mat-label>
-                            <input matInput type="time"
-                                name="endAt" id="endAt" #startAtModel="ngModel" [(ngModel)]="newSchedules.endAt"
-                                required 
-                                (ngModelChanges)="onTimeChange($event)" >
+                            <input matInput [matTimepicker]="endAtPicker" [ngModelOptions]="{updateOn: 'blur'}"
+                                name="endAt" id="endAt" #endAtModel="ngModel" [(ngModel)]="newSchedules.endAt"
+                                disabled="true">
+                            <mat-timepicker #endAtPicker />
+                            <mat-timepicker-toggle [for]="endAtPicker" matSuffix />
                         </mat-form-field>
-
                     </div>
                     <div class="col-3">
                         <mat-form-field>
@@ -42,14 +43,11 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-6">
             <mat-card class="calendar-card">
-               
+               <mat-calendar></mat-calendar>
             </mat-card>
-
-           
-
         </div>
         <div class="col-6">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

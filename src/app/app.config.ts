@@ -1,4 +1,3 @@
-import { CalendarModuleConfig } from './../../node_modules/angular-calendar/modules/common/calendar-common.module.d';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 

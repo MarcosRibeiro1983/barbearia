@@ -15,16 +15,19 @@ import { CommonModule } from '@angular/common';
 import { YesNoDialogComponent } from '../../commons/components/yes-no-dialog/yes-no-dialog.component';
 import { Subscription } from 'rxjs';
 import { ClientModel } from '../../clients/client.model';
+import { MatDatepickerModule, MatCalendar } from '@angular/material/datepicker'
+import { MatTimepickerModule } from '@angular/material/timepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-schedules-calendar',
   standalone: true,
   imports: [CommonModule, FormsModule, MatButtonModule, MatIconModule, MatCardModule, MatTableModule, MatPaginatorModule,
-     MatTooltipModule, MatInputModule, MatFormFieldModule, MatSelectModule],
+     MatTooltipModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatCalendar, MatTimepickerModule],
   templateUrl: './schedules-calendar.component.html',
   styleUrl: './schedules-calendar.component.scss',
   providers: [
-    
+    provideNativeDateAdapter(),
   ]
 })
 

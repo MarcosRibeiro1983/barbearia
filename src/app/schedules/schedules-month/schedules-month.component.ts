@@ -31,11 +31,11 @@ constructor(private service: SchedulesService,
 
   ngOnInit(): void {
     const currentDate = new Date();
-    this.subscriptions.push( this.clientService.fetch().subscribe({
-      next: (clients) => {
-        this.clients = clients;                
-      }
-    } ) )
+    // this.subscriptions.push( this.clientService.fetch().subscribe({
+    //   next: (clients) => {
+    //     this.clients = clients;                
+    //   }
+    // } ) )
     this.buildSchedule(currentDate);
   }
  
