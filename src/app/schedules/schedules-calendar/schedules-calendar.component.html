@@ -8,7 +8,7 @@
                             <mat-label>Inicio</mat-label>
                             <input matInput [matTimepicker]="startAtPicker" [ngModelOptions]="{updateOn: 'blur'}"
                                 name="startAt" id="startAt" #startAtModel="ngModel"
-                                (ngModelChange)="onTimeChange($event)" [(ngModel)]="newSchedules.startAt" requied>
+                                (ngModelChange)="onTimeChange($event)" [(ngModel)]="newSchedules.startAt">
                             <mat-timepicker #startAtPicker />
                             <mat-timepicker-toggle [for]="startAtPicker" matSuffix />
                         </mat-form-field>
@@ -17,8 +17,7 @@
                         <mat-form-field>
                             <mat-label>Término</mat-label>
                             <input matInput [matTimepicker]="endAtPicker" [ngModelOptions]="{updateOn: 'blur'}"
-                                name="endAt" id="endAt" #endAtModel="ngModel" [(ngModel)]="newSchedules.endAt"
-                                disabled="true">
+                                name="endAt" id="endAt" #endAtModel="ngModel" [(ngModel)]="newSchedules.endAt">
                             <mat-timepicker #endAtPicker />
                             <mat-timepicker-toggle [for]="endAtPicker" matSuffix />
                         </mat-form-field>
@@ -27,7 +26,7 @@
                         <mat-form-field>
                             <mat-label>Selecione o cliente</mat-label>
                             <mat-select name="clientId" id="clientId" #clientIdModel="ngModel" [(ngModel)]="newSchedules.clientId">
-                                <mat-option *ngFor="let client of clients" value="client.id">
+                                <mat-option *ngFor="let client of clients" [value]="client.id">
                                     {{ client.name }}
                                 </mat-option>
                             </mat-select>

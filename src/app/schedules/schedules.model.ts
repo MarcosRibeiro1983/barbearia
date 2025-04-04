@@ -13,6 +13,14 @@ export interface ClientAppointment {
     clientName: string;
 }
 
+export interface SaveClientAppointment {
+    day: number;
+    startAt: Date;
+    endAt: Date;
+    clientId: number;
+    clientName: string;
+}
+
 export interface SaveSchedulesModel {
     startAt?: Date;
     endAt?: Date;

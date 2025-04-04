@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ClientsService } from '../../services/api-client/clients/clients.service';
-import { ClientModel } from '../client.model';
+import { ClientModel, SaveClientModel } from '../client.model';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgxMaskDirective } from 'ngx-mask';
 
@@ -18,7 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class ClientFormComponent {
 
-  @Input() client: ClientModel = { id: 0, name: '', email: '', phone: '' };
+  @Input() client: SaveClientModel = {  name: '', email: '', phone: '' };
   @Output() clientSubmited = new EventEmitter<ClientModel>();
 
   constructor(private service: ClientsService) {

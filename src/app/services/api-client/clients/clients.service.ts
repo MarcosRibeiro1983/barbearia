@@ -15,11 +15,11 @@ export class ClientsService {
 
 
   save( client: ClientModel ):Observable<ClientModel> {
-    return this.http.post<ClientModel>(ClientsService.URL, client);
+    return this.http.post<ClientModel>(ClientsService.URL + '/save', client);
   }
 
   update(id: number, client: ClientModel ):Observable<ClientModel> {
-    return this.http.put<ClientModel>(ClientsService.URL + '/' + id, {client});
+    return this.http.put<ClientModel>(ClientsService.URL + '/update' + id, {client});
   }
 
   fetch(): Observable<ClientModel[]> {

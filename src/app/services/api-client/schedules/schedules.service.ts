@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class SchedulesService {
 
-  static URL = environment.apiUrl + 'schadules';
+  static URL = environment.apiUrl + 'schedule';
 
   constructor(private http: HttpClient) { }
 
   save( schadule: SaveSchedulesModel ):Observable<SaveSchedulesModel> {
-    return this.http.post<SaveSchedulesModel>(SchedulesService.URL, schadule);
+    return this.http.post<SaveSchedulesModel>(SchedulesService.URL + '/save', schadule);
   }
 
   fetchInMonth(year: number, month: number): Observable<SchaduleModel> {

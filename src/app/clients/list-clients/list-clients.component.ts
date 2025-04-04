@@ -25,18 +25,11 @@ export class ListClientsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-    this.clients.push(
-      { id: 1, name: 'Amelie', email: 'amelie@soucat.com', phone: '23234434' },
-      { id: 2, name: 'Maya', email: 'maya@soucat.com', phone: '23234434' },
-      { id: 3, name: 'Ravioli', email: 'ravioli@soucat.com', phone: '23234434' },
-      { id: 4, name: 'Alê', email: 'ale@soucat.com', phone: '23234434' }
-    )
-
-    // this.httpSubscriptions.push(this.service.fetch().subscribe({
-    //   next: (resp) => {
-    //     this.clients = resp;
-    //   }
-    // }))
+    this.httpSubscriptions.push(this.service.fetch().subscribe({
+      next: (resp) => {
+        this.clients = resp;
+      }
+    }))
   }
 
   ngOnDestroy(): void {

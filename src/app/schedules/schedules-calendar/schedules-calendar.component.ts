@@ -1,4 +1,4 @@
-import { ClientAppointment, SaveSchedulesModel, SchaduleModel, SelectedClient } from './../schedules.model';
+import { ClientAppointment, SaveClientAppointment, SaveSchedulesModel, SchaduleModel, SelectedClient } from './../schedules.model';
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormControl, FormsModule, NgForm } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -134,8 +134,7 @@ export class SchedulesCalendarComponent implements OnInit, AfterViewInit, OnChan
     startAt.setHours(this.newSchedules.startAt!.getHours(), this.newSchedules.startAt!.getMinutes());
     endAt.setHours(this.newSchedules.endAt!.getHours(), this.newSchedules.endAt!.getMinutes());
 
-    const save: ClientAppointment = {
-      id: 0,
+    const save: SaveClientAppointment = {
       day: this._selected.getDate(),
       startAt,
       endAt,

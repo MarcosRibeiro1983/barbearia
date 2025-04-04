@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ClientsService } from '../../services/api-client/clients/clients.service';
 import { ClientFormComponent } from "../client-form/client-form.component";
-import { ClientModel } from '../client.model';
+import { ClientModel, SaveClientModel } from '../client.model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { SnackbarManagerService } from '../../services/snackbar-manager.service';
@@ -32,9 +32,10 @@ export class NewClientComponent implements OnDestroy {
   }
 
 
-  onSubmitClient(value: ClientModel) {
+  onSubmitClient(value: SaveClientModel) {
 
-    const { id, ...request } = value;
+    const { ...request } = value;
+    
     this.httpSubscription = this.service.save(request).subscribe({
       next: (result) => {
         this.serviceSnackBar.show('Usuário' + result.name + ' cadastrado com sucesso!');

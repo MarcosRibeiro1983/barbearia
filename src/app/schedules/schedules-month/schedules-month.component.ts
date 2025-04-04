@@ -31,17 +31,19 @@ constructor(private service: SchedulesService,
 
   ngOnInit(): void {
     const currentDate = new Date();
-    // this.subscriptions.push( this.clientService.fetch().subscribe({
-    //   next: (clients) => {
-    //     this.clients = clients;                
-    //   }
-    // } ) )
+    this.clientService.fetch().subscribe({
+      next: (clients) => {
+        this.clients = clients;                
+      }
+    });
     this.buildSchedule(currentDate);
   }
  
 
   ngOnDestroy(): void {
-    this.subscriptions.forEach(s => s.unsubscribe());
+    if(this.subscriptions.length > 0) {
+      this.subscriptions.forEach(s => s.unsubscribe());
+    }
   }
 
   onScheduleClient(schedule: SaveSchedulesModel) {
@@ -49,8 +51,8 @@ constructor(private service: SchedulesService,
       const request: SaveSchedulesModel = {
         startAt: schedule.startAt, endAt: schedule.endAt, clientId: schedule.clientId
       }
-
-      this.subscriptions.push( this.service.save(request).subscribe() )
+      this.service.save(request).subscribe()
+      
     }
     
   }

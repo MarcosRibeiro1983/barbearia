@@ -5,3 +5,8 @@ export interface ClientModel {
     phone: string;
 }
 
+export interface SaveClientModel {
+    name: string;
+    email: string;
+    phone: string;
+}
